@@ -5,8 +5,8 @@ const mongoose = require('mongoose')
 const PORT = process.env.PORT || 3000
 
 //Routers
-const loginroutes = require('./auth')
-
+const loginroutes = require('./routes/auth')
+const postroutes = require('./routes/posts')
 //models
 const User = require('./models/User')
 
@@ -24,6 +24,7 @@ mongoose.connect(DB_URL).then(()=>{
 
 //Routes Miiddelware
 app.use('/',loginroutes)
+app.use('/',postroutes)
 
 app.listen(PORT,()=>{
     console.log("Listening on port 3000")

@@ -2,9 +2,9 @@ const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcrypt')//for hashing the password
 const nodemailer = require('nodemailer');//to send mail when forgot password
-const User = require('./models/User')
+const User = require('../models/User')
 const jwt = require('jsonwebtoken')//assigning token to the logged in user
-const { JWT_SECRET,SMTP_USER,SMTP_KEY } = require('./config/keys')
+const { JWT_SECRET,SMTP_USER,SMTP_KEY } = require('../config/keys')
 
 
 const transporter = nodemailer.createTransport({
@@ -18,6 +18,7 @@ const transporter = nodemailer.createTransport({
 
 //home page API
 router.get("/", (req, res) => {
+    console.log('welcome')
     res.send("Banao Node.js")
 })
 
